@@ -1,5 +1,8 @@
+package com.jazzkp.bookshop;
+
+import com.jazzkp.bookshop.dto.BookOrder;
 import dto.BookOrderRequest;
-import dto.Order;
+
 import exception.NoBookIDException;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +20,10 @@ public class OrderService {
             if (b.getNumOfVisits() > 9){
                 if(b.getBookId() == null)
                     throw new NoBookIDException();
-                orderRepository.save(new Order(b.getBookId(), b.getNumOfVisits() % 10));
+                BookOrder bo = new BookOrder();
+                bo.setBookId(b.getBookId());
+                bo.setOrderAmount((int)b.getNumOfVisits()/2);
+                orderRepository.save(bo);
             }
         });
         return ResponseEntity.ok().build();

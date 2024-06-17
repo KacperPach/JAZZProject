@@ -17,6 +17,7 @@ public class Book {
     private UUID id;
     // 🙏🙏🙏 do not mind the typos too far gone to fix now 🙏🙏🙏
     private String genere;
+    private String bookName;
     private Double price;
     private Integer numOfPages;
     private Integer numOfVisits = 0;

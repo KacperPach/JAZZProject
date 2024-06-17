@@ -10,7 +10,6 @@ import java.util.UUID;
 
 @Data
 @Entity
-@AllArgsConstructor
 public class BookOrder {
     @Id
     @UuidGenerator

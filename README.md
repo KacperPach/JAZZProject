@@ -12,6 +12,7 @@ Project for 4th semester advanced Java studies at PJATK
       - [X] Autora, 
         - [X] Autor powinien być osobną klasą, encją bazodanową.
       - [X] Gatunek, 
+      - [X] Nazwę (chyba brakuje w oryginalnych wymaganiach)
       - [X] Cenę, 
       - [X] Ilość stron, 
       - [X] licznik odwiedzin, 

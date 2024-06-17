@@ -17,6 +17,7 @@
     <modules>
         <module>Api-gen</module>
         <module>BookShop</module>
+        <module>BookOrder</module>
     </modules>
 
     <properties>
@@ -48,13 +49,13 @@
     <dependency>
         <groupId>org.mapstruct</groupId>
         <artifactId>mapstruct</artifactId>
-        <version>1.5.5.Final</version>
+        <version>1.4.2.Final</version>
         <scope>provided</scope>
     </dependency>
     <dependency>
         <groupId>org.mapstruct</groupId>
         <artifactId>mapstruct-processor</artifactId>
-        <version>1.5.5.Final</version>
+        <version>1.4.2.Final</version>
         <scope>provided</scope>
     </dependency>
     <dependency>

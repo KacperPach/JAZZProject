@@ -7,8 +7,10 @@ import com.jazzkp.bookshop.dto.Book;
 import com.jazzkp.bookshop.exception.InvalidAuthorIdException;
 import com.jazzkp.bookshop.exception.InvalidBookCreateRequestException;
 import com.jazzkp.bookshop.exception.InvalidBookIdException;
+import com.jazzkp.bookshop.feignClients.OrderClient;
 import com.jazzkp.bookshop.mapper.BookMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,8 @@ public class BookService {
     private final BookRepository bookRepository;
     private final AuthorRepository authorRepository;
     private final BookMapper bookMapper;
+    @Autowired
+    private final OrderClient orderClient;
 
     public ResponseEntity<BookResponse> addBook(BookCreateRequest bookCreateRequest) {
         validateBookCreateRequest(bookCreateRequest);
@@ -78,6 +82,10 @@ public class BookService {
                 ));
 
         return ResponseEntity.ok(body);
+    }
+
+    public ResponseEntity<Void> sendOrder() {
+        return orderClient.sendOrder(bookRepository.findAll().stream().map(bookMapper::mapToBookOrderRequest).toList());
     }
 
     // Validation utilities

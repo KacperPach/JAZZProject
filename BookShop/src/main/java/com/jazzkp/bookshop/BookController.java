@@ -16,7 +16,6 @@ import java.util.UUID;
 @RequestMapping("/book")
 public class BookController implements BookControllerApi {
 
-
     @Autowired
     private final BookService service;
 
@@ -54,5 +53,11 @@ public class BookController implements BookControllerApi {
     @PutMapping("/updateBook/{id}")
     public ResponseEntity<BookResponse> updateBook(@PathVariable UUID id, BookCreateRequest bookCreateRequest) {
         return service.updateBook(id,bookCreateRequest);
+    }
+
+    @Override
+    @GetMapping("/orderBooks")
+    public ResponseEntity<Void> orderBooks() {
+        return service.sendOrder();
     }
 }

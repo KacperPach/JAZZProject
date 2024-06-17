@@ -3,6 +3,7 @@ package com.jazzkp.bookshop.mapper;
 import com.bookapi.openapi.model.BookCreateRequest;
 import com.bookapi.openapi.model.BookResponse;
 import com.jazzkp.bookshop.dto.Book;
+import dto.BookOrderRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -31,4 +32,7 @@ public interface BookMapper {
 
     BookCreateRequest mapToBookCreateRequest(Book bookDto);
     BookCreateRequest mapToBookCreateRequest(BookResponse bookResponse);
+
+    @Mapping(target = "bookId", source = "id")
+    BookOrderRequest mapToBookOrderRequest(Book bookDto);
 }
