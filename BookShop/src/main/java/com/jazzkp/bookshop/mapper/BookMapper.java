@@ -23,7 +23,7 @@ public interface BookMapper {
         out or not depending on how mapstruct is
         feeling rn. 🤓
      */
-    @Mapping(target = "id", source = "id")
+    //@Mapping(target = "id", source = "id")
     BookResponse mapToBookResponse(Book book);
     BookResponse mapToBookResponse(BookCreateRequest bookCreateRequest);
 
@@ -33,6 +33,6 @@ public interface BookMapper {
     BookCreateRequest mapToBookCreateRequest(Book bookDto);
     BookCreateRequest mapToBookCreateRequest(BookResponse bookResponse);
 
-    @Mapping(target = "bookId", source = "id")
+    //@Mapping(target = "bookId", source = "id")
     BookOrderRequest mapToBookOrderRequest(Book bookDto);
 }
