@@ -117,7 +117,7 @@ paths:
       responses:
         '200':
           description: OK
-  /orderBooks:
+  /order-report:
     get:
       tags:
         - book-controller
@@ -125,6 +125,12 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BookOrder'
 components:
   schemas:
     BookDto:
@@ -190,3 +196,11 @@ components:
           format: uuid
         name:
           type: string
+    BookOrder:
+      type: object
+      properties:
+        bookId:
+          type: string
+          format: uuid
+        orderAmount:
+          type: integer
