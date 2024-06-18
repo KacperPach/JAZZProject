@@ -2,6 +2,7 @@ package com.jazzkp.bookshop;
 
 import com.bookapi.openapi.api.BookControllerApi;
 import com.bookapi.openapi.model.BookCreateRequest;
+import com.bookapi.openapi.model.BookOrder;
 import com.bookapi.openapi.model.BookResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +58,7 @@ public class BookController implements BookControllerApi {
 
     @Override
     @GetMapping("/orderBooks")
-    public ResponseEntity<Void> orderBooks() {
+    public ResponseEntity<List<BookOrder>> orderBooks() {
         return service.sendOrder();
     }
 }

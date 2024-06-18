@@ -10,6 +10,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+
     <groupId>com.jazzkp</groupId>
     <artifactId>JAZZ</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -27,6 +28,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.github.librepdf</groupId>
+            <artifactId>openpdf</artifactId>
+            <version>1.3.27</version>
+        </dependency>
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>

@@ -1,5 +1,6 @@
 package com.jazzkp.bookshop.feignClients;
 
+import com.bookapi.openapi.model.BookOrder;
 import dto.BookOrderRequest;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
@@ -10,5 +11,5 @@ import java.util.List;
 @FeignClient(value ="order",  url = "localhost:8080")
 public interface OrderClient {
     @PostMapping("/order/sendOrder")
-    ResponseEntity<Void> sendOrder (List<BookOrderRequest> orderRequests);
+    ResponseEntity<List<BookOrder>> sendOrder (List<BookOrderRequest> orderRequests);
 }

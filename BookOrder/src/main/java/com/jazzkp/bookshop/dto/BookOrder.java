@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Data
 @Entity
-public class BookOrderDta {
+public class BookOrder {
     @Id
     private UUID bookId;
     private Integer orderAmount;

@@ -22,8 +22,14 @@ public interface BookMapper {
         this is why you my see this line commented
         out or not depending on how mapstruct is
         feeling rn. 🤓
+        I GET IT NOW IT THINKS ITS NULL WHEN I
+        MVN CLEAN INSTALL BECAUSE THE OBJECTS
+        FROM OPENAPI GENERATE AT THE
+        SAME TIME/AFTER THIS CLASS BUILDS SO
+        IT ACTUALLY THINKS THE OBJECTS DON'T
+        HAVE IDS 🤯🤯🤯 (maybe)
      */
-    //@Mapping(target = "id", source = "id")
+    @Mapping(target = "id", source = "id")
     BookResponse mapToBookResponse(Book book);
     BookResponse mapToBookResponse(BookCreateRequest bookCreateRequest);
 
@@ -33,6 +39,6 @@ public interface BookMapper {
     BookCreateRequest mapToBookCreateRequest(Book bookDto);
     BookCreateRequest mapToBookCreateRequest(BookResponse bookResponse);
 
-    //@Mapping(target = "bookId", source = "id")
+    @Mapping(target = "bookId", source = "id")
     BookOrderRequest mapToBookOrderRequest(Book bookDto);
 }

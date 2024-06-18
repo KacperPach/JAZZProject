@@ -1,6 +1,7 @@
 package com.jazzkp.bookshop;
 
 import com.bookapi.openapi.model.BookCreateRequest;
+import com.bookapi.openapi.model.BookOrder;
 import com.bookapi.openapi.model.BookResponse;
 import com.jazzkp.bookshop.dto.Author;
 import com.jazzkp.bookshop.dto.Book;
@@ -84,7 +85,7 @@ public class BookService {
         return ResponseEntity.ok(body);
     }
 
-    public ResponseEntity<Void> sendOrder() {
+    public ResponseEntity<List<BookOrder>> sendOrder() {
         return orderClient.sendOrder(bookRepository.findAll().stream().map(bookMapper::mapToBookOrderRequest).toList());
     }
 
